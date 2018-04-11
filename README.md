@@ -31,12 +31,12 @@ python3 --version
 git clone https://github.com/XunPeng715/global-legaltech-corp.git
 cd  global-legaltech-corp
 ```
-2. Run application
+3. Run application
+if you want to go through up to 20 webpages
 ```
-node server.js
+python spider.py https://www.tutorialspoint.com/index.htm 20
 ```
-3. start react, the react server will run on localhost:3000
+or if you want to fetch all links from website
 ```
-npm start
+python spider.py https://www.tutorialspoint.com/index.htm
 ```
-4. Open browser and go to localhost:3000 and login(**username: xun, password: xun**)
