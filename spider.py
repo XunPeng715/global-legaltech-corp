@@ -31,26 +31,30 @@ class LinkParser(HTMLParser):
         else:
             return []
 
-# using BFS to
+# using BFS to traverse links
+# set maxPages to maximum as default unless user
+# give a specific number of pages to traverse
 def spider(url, maxPages = sys.maxsize):
     pagesToVisit = [url]
     numberVisited = 0
-    visitedlinks = set()
+    # using set to store visited links
+    visitedLinks = set()
     while numberVisited < maxPages and pagesToVisit != []:
-        numberVisited = numberVisited +1
         url = pagesToVisit[0]
+        # use arraylist to play as a role of queue
         pagesToVisit = pagesToVisit[1:]
-        visitedlinks.add(url)
+        visitedLinks.add(url)
+        numberVisited = numberVisited + 1
         try:
             print(numberVisited, "Visiting:", url)
             parser = LinkParser()
+            # return all links(absolute and relative links)
             links = parser.getLinks(url)
             pagesToVisit = pagesToVisit + links
-            # print(pagesToVisit)
             print(" **Success!**")
         except:
             print(" **Failed!**")
-    return visitedlinks
+    return visitedLinks
 
 links = spider("https://www.dreamhost.com", 22)
 print(links)
