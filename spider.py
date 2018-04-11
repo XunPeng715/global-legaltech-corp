@@ -23,13 +23,12 @@ class LinkParser(HTMLParser):
         self.links = []
         self.baseUrl = url
         response = urlopen(url)
-        if response.getheader('Content-Type')=='text/html':
-            htmlBytes = response.read()
-            htmlString = htmlBytes.decode("utf-8")
-            self.feed(htmlString)
-            return self.links
-        else:
-            return []
+        print("abs")
+        print("abs")
+        htmlBytes = response.read()
+        htmlString = htmlBytes.decode("utf-8")
+        self.feed(htmlString)
+        return self.links
 
 # using BFS to traverse links
 # set maxPages to maximum as default unless user
