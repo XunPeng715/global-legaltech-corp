@@ -23,8 +23,6 @@ class LinkParser(HTMLParser):
         self.links = []
         self.baseUrl = url
         response = urlopen(url)
-        print("abs")
-        print("abs")
         htmlBytes = response.read()
         htmlString = htmlBytes.decode("utf-8")
         self.feed(htmlString)
@@ -56,5 +54,8 @@ def spider(url, maxPages = sys.maxsize):
     return visitedLinks
 
 if __name__=="__main__":
-    links = spider(sys.argv[1], int(sys.argv[2]))
+    if len(sys.argv) > 2:
+        links = spider(sys.argv[1], int(sys.argv[2]))
+    else:
+        links = spider(sys.argv[1])
     print(links)
