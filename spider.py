@@ -56,5 +56,9 @@ def spider(url, maxPages = sys.maxsize):
             print(" **Failed!**")
     return visitedLinks
 
-links = spider("https://www.dreamhost.com", 22)
-print(links)
+# links = spider("https://www.dreamhost.com", 22)
+# print(links)
+
+if __name__=="__main__":
+    links = spider(sys.argv[1], int(sys.argv[2]))
+    print(links)
